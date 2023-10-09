@@ -40,3 +40,5 @@ The student then asked the LLM to determine how much more product will be sold f
 - Model Limitations: A linear regression might oversimplify the relationship between price and quantity. More complex models or techniques might provide different insights.
 
 The LLM correctly describes some of the possible reasons for why the model may be innaccurate. It fails to recognize that the question asked by the student is relevant to any given product in the set not just the top ten most popular. The student then takes the answer and ends the analysis without any further inspection of the confounding variables leading to a highly simplifed and likely inaccurate model that answers a different causal question than what is asked.
+
+## Analysis of Data in Order to Create a Funding Pitch
