@@ -42,3 +42,30 @@ The student then asked the LLM to determine how much more product will be sold f
 The LLM correctly describes some of the possible reasons for why the model may be innaccurate. It fails to recognize that the question asked by the student is relevant to any given product in the set not just the top ten most popular. The student then takes the answer and ends the analysis without any further inspection of the confounding variables leading to a highly simplifed and likely inaccurate model that answers a different causal question than what is asked.
 
 ## Analysis of Data in Order to Create a Funding Pitch
+It appears that the student wished to use a LLM to interpertate a data set with a number of key parameters on VC health. The dataset in question revolved around venture capital investments, aiming to offer insights into funding patterns, company profiles, and financial trajectories.
+
+### Loading in The Supplied Data Set
+As a part of the data interpretation process, the LLM attempted to load in the supplied CSV file. It threw an error in which it was unable to read the supplied data due to an encoding error. As an attempt to correct the issue, the LLM switched encoding languages and was able to properly load in the data. While this did not create any further challenges in this specific analysis, one could see how had the LLM not known that the encoding format was different it could potentially misinterpret the results failing the analysis from the very beginning.
+
+The LLM then positied various approaches to analyse the dataset:
+- Funding by Market: Which markets (industries) receive the most funding?
+- Funding Rounds: What are the common funding rounds, and how much funding is typically raised in each round?
+- Status of Companies: What is the distribution of company statuses (e.g., operating, acquired) and how does it relate to funding?
+- Geographical Analysis: Are there particular regions or countries that attract more venture capital?
+- Investment Types: Which types of investment (e.g., seed, venture, equity crowdfunding) are most common?
+
+The student then proceed to prompt the LLM to analyse all of these factors to "get the company funded". While this data can be used to inform a pitch, the operational definition for "get the company funded" needed to be specific based on what possible investors might be looking for in a new company. Without, these defnitions, the LLM will attempt to process the data in a way that is relevant but likely not specific or helpful for an actual pitch.
+
+### Data Cleaning
+In an attempt to speed computation, the LLM used a simplified approach to cleaning the data set.  The system replaced any '-' in the 'funding_total_usd' column with '0', a decision that might oversimplify or misrepresent the data. The LLM assumes that '-' signifes zero. But in reality, having missing or unobtainable data is very different from having a value of 0. If the data was infact missing, then the entire relevant row should have been scrubbed. From this mistake in cleaning, the LLM introduced error and artifically changed the nautre of the dataset.
+
+### Analysis
+The LLM leveraged the use of visual graphic depictions to highlight trends that might be relevant for a VC pitch. While graphics are useful as a part of the presentaion, they can misrpresent the data to a vast degree depending on how the figure is displayed. For instance if the company had a growth of 10 dollars throughout the last fiscal year, any human would understand that 10 dollars is not that much and does not represent any real growth. However, if one generated a figure in which the y axis was 0.001 dollars, then the growth would appear astronomical and be highly misleading. Given the student did not describe any parameters relevant to how the figures should be displayed or captioned, the pure use of these visuals is not informative. 
+
+The descriptive analyssis approach to creating a pitch is not very complex and does not take into account many of the intracacies of a company that are important to understand when seeking investment. There should be more weight given to inferential statstics, which would attempt to predict where the company is going. As a VC, my pitch would displayed in a way such that I can show how the investors current captial investment will grow over time. Providing data on how the company has grown in the past is innherently inaccurate and unhelpful given that the past did not have the addition of the captial investment inherently changing the parameters of the analysis. Providing a probabilitic model of the future with the proposed investment would be a much more convincing strategy.
+
+Another limitation to this analysis was the fact that the LLM and the student failed to determine if the data uploaded was sufficent enough to even run statistical tests. Ensuring data quality is paramount. It involves verifying that the data is accurate, complete, reliable, relevant, and timely. Without this assessment, any insights derived run the risk of being skewed or misleading. There should have been commentary included on how the data might be limited. If this assumption was made then a ptich could be succesfful but the fact that it was not acknolwedged is very misleading and is bad buisness practice. There was also a lack of identification of any colliders as it can be assumed that any metric of company health will be interconnected. This again results in even a larger skew of the data analysis resulting in a pitch that is not at all relevant to the actual company performance or the risk assesment of the possible investors
+
+##
+
+
